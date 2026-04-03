@@ -101,11 +101,6 @@ A **Jenkins Declarative Pipeline** automates build, test, security scanning, con
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**.
-
----
-
 ## 👨‍💻 Author
 **Birendra Kumar**  
 - 🌐 [LinkedIn](https://www.linkedin.com/in/birendra-kumar-09580b173)  

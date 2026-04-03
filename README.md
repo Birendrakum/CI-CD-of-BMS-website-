@@ -42,8 +42,29 @@ This project defines an **Infrastructure-as-Code (IaC)** setup for deploying app
 - **Blackbox Exporter** – Endpoint monitoring  
 
 ---
+# ☸️ AWS EKS Infrastructure with Terraform
 
+## 🌐 Architecture
+- **VPC** with:
+  - CIDR: `10.0.0.0/16`
+  - 2 Availability Zones (`us-east-1a`, `us-east-1b`)
+  - Public subnets: `10.0.1.0/24`, `10.0.2.0/24`
+  - Private subnets: `10.0.3.0/24`, `10.0.4.0/24`
+  - NAT Gateway enabled (single NAT for cost optimization)
 
+- **IAM Roles**:
+  - **EKS Cluster Role** → `AmazonEKSClusterPolicy`
+  - **Node Group Role** → `AmazonEKSWorkerNodePolicy`, `AmazonEKS_CNI_Policy`, `AmazonEC2ContainerRegistryReadOnly`
+
+- **EKS Cluster**:
+  - Name: `my-eks-cluster`
+  - Uses private subnets for secure communication
+
+- **Node Group**:
+  - Name: `private-nodes`
+  - Instance type: `t3.medium`
+  - Scaling: min=1, desired=2, max=3
+  - Runs inside private subnets
 
 ---
 
